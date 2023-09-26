@@ -25,13 +25,18 @@ print("Tong so sinh vien dat diem D la: ",tongdiemd)
 tongdiemf = np.sum(diemF)
 print("Tong so sinh vien dat diem F la: ",tongdiemf)
 maxd = diemD.max()
-i, = np.where(diemD == maxd)
+maxd_class_indices = np.where(diemD == maxd)[0]  # Using [0] to get the class indices as an array
 mind = diemD.min()
-i, = np.where(diemA == mind)
+mind_class_indices = np.where(diemD == mind)[0]  # Using [0] to get the class indices as an array
 
- 
-print('lop co nhieu diem D la {0} co {1} sv dat diem D'.format(in_data[i,0],maxd))
-print('lop co it diem D la {0} co {1} sv dat diem D'.format(in_data[i,0],mind))
+print('Lop co nhieu diem D cao nhat la:')
+for i in maxd_class_indices:
+    print(f'{in_data[i, 0]} co diem D cao nhat la {maxd}')
+
+print('Lop co it diem D thap nhat la:')
+for i in mind_class_indices:
+    print(f'{in_data[i, 0]} co diem D thap nhat la {mind}')
+
 plt.plot(range(len(diemA)),diemA,'r-',label="Diem A")
 plt.plot(range(len(diemB)),diemB,'g-',label="Diem B")
 plt.plot(range(len(diemC)),diemC,'b-',label="Diem C")
