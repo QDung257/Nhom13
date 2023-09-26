@@ -2,7 +2,8 @@ import pandas as pd
 from numpy import array
 import matplotlib.pyplot as plt
 import numpy as np
-df=pd.read_csv('diemPython.csv',index_col=0,header = 0)
+df = pd.read_csv('diemPython.csv', index_col=0, header=0, encoding='ISO-8859-1')
+
 in_data = array(df.iloc[:,:])
 print(in_data)
 print('Tong so sinh vien tham du mon hoc la :')
