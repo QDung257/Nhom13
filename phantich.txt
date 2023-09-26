@@ -1,0 +1,55 @@
+Dữ liệu đầu vào: 9 lớp, số Sv đạt điểm A+,A,B+,B,C,C+,D+,D,F, điểm L1,L2,TX1, cuối kì
+
+- Lớp có số Sv đạt điểm A nhiều nhất: lớp 01 dùng hàm np.max(arr)
+- Lớp có số SV đạt điểm A ít nhất: lớp 06 dùng hàm np.min(arr)
+
+- Trung bình cộng số Sv đạt điểm A có thể dùng hàm np.sum(arr)
+
+- So sánh số SV đạt điểm A, B+ giữa các lớp có thể dùng hàm compare của thư viện Pandas, kết quả trả về là một series các kết quả chứa giá trị Boolen cho biết sự so sánh đó là đúng hay sai, True cho biết rằng số lượng sinh viên đạt điểm A nhiều hơn, False cho biết rằng số lượng sinh viên đạt điểm B+ nhiều hơn, và NaN cho biết rằng cả hai giá trị bằng nhau
+
+- Để so sánh sự chênh lệch giữa số lượng sinh viên đạt các loại điểm, bạn có thể sử dụng hàm subtract() của thư viện Pandas để trừ hai Series chứa số lượng sinh viên của các loại điểm. Kết quả sẽ là một Series mới chứa sự chênh lệch giữa các loại điểm
+
+- Để vẽ biểu đồ điểm A và B+ chúng ta sử dụng hàm plt.bar() để tạo biểu đồ cột, với trục x biểu thị loại điểm (A và B+), và trục y biểu thị số lượng sinh viên đạt từng loại điểm. Sau đó, chúng ta sử dụng các hàm plt.xlabel(), plt.ylabel(), và plt.title() để đặt tên cho trục và tiêu đề của biểu đồ. Cuối cùng, chúng ta sử dụng plt.show() để hiển thị biểu đồ.
+
+- Để tính phần trăm số SV đạt từng mức điểm ta thưc hiện như sau:
+Tạo một DataFrame mới (df_lop_loaidiem) chứa các cột lớp và các loại điểm (A+, A, B+, B, C+, C, D+, D, F).
+
+Sử dụng hàm groupby() để nhóm dữ liệu theo mã lớp và tính tổng số sinh viên đạt từng loại điểm cho mỗi lớp.
+
+Tính tổng số sinh viên trong mỗi lớp bằng cách sử dụng hàm size() và lưu vào biến lop_soluong_sv.
+
+Tính phần trăm cho mỗi loại điểm trong từng lớp bằng cách chia tổng số sinh viên đạt từng loại điểm cho tổng số sinh viên trong lớp đó, sau đó nhân với 100 để tính phần trăm.
+
+Kết quả là một DataFrame chứa phần trăm các loại điểm (A+, A, B+, B, C+, C, D+, D, F) cho từng lớp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Yêu cầu đề bài là tạo một chương trình để đọc dữ liệu từ file 'diemPython.csv', sau đó thực hiện thống kê và báo cáo các thông tin về điểm phân loại A, B và C theo chuẩn đầu ra L1, L2 và các bài kiểm tra. Dưới đây là một thuật toán cơ bản để thực hiện yêu cầu này:
+
+1. **Đọc Dữ Liệu từ File CSV**: Sử dụng thư viện Pandas để đọc dữ liệu từ file 'diemPython.csv'.
+
+2. **Tính Điểm Trung Bình**: Tính điểm trung bình cho từng sinh viên dựa trên công thức đầu ra L1, L2 và các bài kiểm tra. Sử dụng thư viện NumPy để thực hiện tính toán này.
+
+3. **Phân Loại Điểm**: Dựa trên điểm trung bình tính được, phân loại điểm thành A, B hoặc C.
+
+4. **Thống Kê Điểm theo Phân Loại và Lớp**: Sử dụng Pandas để thống kê số lượng sinh viên có điểm A, B và C theo từng lớp.
+
+5. **Xác Định Lớp Có Số Sinh Viên Đạt Điểm A Nhiều Nhất**: Tìm lớp có số sinh viên đạt điểm A nhiều nhất.
+
+6. **Vẽ Biểu Đồ Phân Bố Điểm**: Sử dụng Matplotlib để vẽ biểu đồ phân bố điểm A, B và C cho từng lớp.
+
