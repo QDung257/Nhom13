@@ -1,0 +1,13 @@
+Chương trình là một ứng dụng desktop sử dụng PyQt5 để tính đạo hàm của một biểu thức toán học dựa trên đầu vào từ người dùng. Dưới đây là mô tả chi tiết về cách chương trình hoạt động:
+
+Chương trình tạo một cửa sổ giao diện người dùng (GUI) sử dụng PyQt5 với một ô để nhập biểu thức toán học và một ô để nhập bậc của đạo hàm muốn tính.
+
+Sau khi đã nhập biểu thức và bậc đạo hàm, nhấn nút "Tinh toan."
+
+Chương trình sử dụng thư viện SymPy để tính toán đạo hàm của biểu thức theo biến x.
+
+Kết quả đạo hàm được hiển thị trên cùng cửa sổ giao diện người dùng.
+
+Ví dụ, nếu nhập biểu thức x^3 vào ô "Nhap bieu thuc" và nhập số 2 vào ô "Nhap bac cua dao ham" và sau đó nhấn nút "Tinh toan," kết quả sẽ hiển thị là "Dao ham bac 2 la : 6*x."
+
+Chương trình này giúp  tính toán đạo hàm của biểu thức toán học một cách dễ dàng và hiển thị kết quả trên giao diện người dùng.
