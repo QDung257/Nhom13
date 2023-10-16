@@ -7,10 +7,10 @@ from numpy import array
 tf.disable_v2_behavior()
 # Generating random linear data
 # There will be 50 data points ranging from 0 to 50
-'''df=pd.read_csv('Student_Performance.csv',index_col=0,header = 0)
+df=pd.read_csv('Student_Performance.csv',index_col=0,header = 0)
 x = array(df.iloc[:900,:5])
 y = array(df.iloc[:900,5:6])
-'''
+
 #Tạo tâp giá trị x và y
 x = np.linspace(0, 50, 50)
 y = np.linspace(0, 50, 50)
