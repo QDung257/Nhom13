@@ -3,16 +3,16 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 def update_image():
-    if original_image():
+    if original_img is not None:
         #zoom vào ảnh gốc
         zoomed_img=original_img.resize((int(original_img.width * current_scale), int(original_img.height * current_scale)), Image.LANCZOS)
         rotated_img=original_img.rotate(rotation_angle)
         img=ImageTk.PhotoImage(rotate_img)
-        img_lable.config(image=img)
-        img_lable.image=img
+        img_label.config(image=img)
+        img_label.image=img
 
         # tỉ lệ zoom
-        zoom_lable.config(text=f"Zoom: {current_scale:.1f}")
+        zoom_label.config(text=f"Zoom: {current_scale:.1f}")
 #hàm xử lí khi thanh trượt thay đổi giá trị
 def on_scale_change(event):
     global current_scale
@@ -20,10 +20,10 @@ def on_scale_change(event):
     update_image()
 #hàm xử lí khi nhấn nút chọn ảnh
 def select_image():
-    global original_img, current_scale, current_rotation
+    global original_img, current_scale
     filename = filedialog.askopenfilename()
-    if file_path:
-        original_img = cv2.imread(filename)
+    if filename:
+        original_img = Image.open(filename)
         current_scale = 1.0
         rotation_angle=0 #đặt góc quay 0độ
         update_image()
@@ -44,13 +44,12 @@ def rotate_right():
     
 window = tk.Tk()
 window.title("Zoom In/Out and Rotate Image")
-
+window.geometry('950x450')
     
 #Khai báo biến toàn cục
 current_scale = 1.0
-current_rotation = 0
 original_img = None
-scale_factor = 1.2
+rotation_angle=0
 # Tạo frame chứa thanh trượt và nút chọn ảnh
 control_frame = tk.Frame(window)
 control_frame.pack(side="left")
