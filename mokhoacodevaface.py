@@ -3,8 +3,8 @@ import cv2
 import face_recognition
 import threading
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QLineEdit, QMainWindow
-from PyQt5.QtCore import QTimer, Qt
-from PyQt5.QtGui import QPixmap, QImage, QPainter
+from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import QPixmap, QImage
 
 # Load the user's face encoding
 user_image = face_recognition.load_image_file("person2.jpg")
@@ -17,6 +17,7 @@ class FaceUnlockApp(QMainWindow):
         self.code = "1234"
         self.entered_code = ""
         self.face_unlock_enabled = False
+        self.recognized_person = "Unknown"
         self.initUI()
 
     def initUI(self):
@@ -42,6 +43,10 @@ class FaceUnlockApp(QMainWindow):
 
         self.image_label = QLabel(self)
         layout.addWidget(self.image_label)
+
+        # Additional label for displaying recognized person's info
+        self.info_label = QLabel(self)
+        layout.addWidget(self.info_label)
 
         self.central_widget.setLayout(layout)
 
@@ -78,12 +83,12 @@ class FaceUnlockApp(QMainWindow):
                 if self.face_unlock_enabled:
                     face_locations = face_recognition.face_locations(frame)
                     face_encodings = face_recognition.face_encodings(frame, face_locations)
+                    self.recognized_person = "Unknown"  # Default to "Unknown" unless a match is found
                     for face_encoding in face_encodings:
                         matches = face_recognition.compare_faces([user_face_encoding], face_encoding)
                         if True in matches:
+                            self.recognized_person = "User: John Doe"  # Replace with the actual person's info
                             self.message_label.setText("Mở khóa thành công!")
-                        else:
-                            self.message_label.setText("Không nhận diện được!")
                             break
 
                 height, width, channel = frame.shape
@@ -92,6 +97,9 @@ class FaceUnlockApp(QMainWindow):
 
                 pixmap = QPixmap.fromImage(qImg)
                 self.image_label.setPixmap(pixmap)
+
+                # Update the recognized person's info
+                self.info_label.setText(self.recognized_person)
 
     def closeEvent(self, event):
         self.cap.release()
