@@ -1,3 +1,0 @@
-- Để đường dẫn tuyệt đối không phù hợp khi chạy code trên máy tính khác, có thể dùng đường dẫn tạm thời thay thế
-- Sử dụng np.argmax(result, axis=1) để xác định lớp dự đoán thay vì duyệt qua từng phần tử trong result
-- Chỉnh sửa hệ số rescale, thay đổi hệ số rescale trong ImageDataGenerator từ 1./255 thành 1/255.0 để đảm bảo nó được xử lý như một số thập phân giúp ảnh được xử lí sắc nét hơn

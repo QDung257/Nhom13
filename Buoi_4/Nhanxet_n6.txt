@@ -1,0 +1,22 @@
+Dưới đây là một cải tiến cụ thể bạn có thể thêm vào ứng dụng nhận diện vật thể của mình:
+
+Chức năng Lịch sử Kết quả: Thêm một tính năng lưu trữ lịch sử kết quả của các lần nhận diện trước đó. Khi người dùng chụp ảnh từ webcam, kết quả sẽ được hiển thị trên giao diện cùng với ảnh và được lưu vào một danh sách lịch sử. Người dùng có thể xem lại lịch sử kết quả và các ảnh đã chụp từ trước. Điều này có thể hữu ích để theo dõi và ghi lại các kết quả nhận diện theo thời gian.
+
+Để thực hiện cải tiến này, bạn có thể sử dụng một danh sách (list) trong Python để lưu trữ lịch sử kết quả. Mỗi lần bạn thực hiện nhận diện, bạn sẽ thêm kết quả và ảnh tương ứng vào danh sách này. Sau đó, bạn có thể hiển thị danh sách lịch sử trong giao diện người dùng và cho phép người dùng xem lại các kết quả trước đó khi cần.
+
+Đây là một ví dụ về cách bạn có thể bắt đầu thực hiện tính năng này:
+
+# Khai báo một danh sách lịch sử kết quả
+result_history = []
+
+# Thêm kết quả và ảnh vào lịch sử
+def add_result_to_history(result, image):
+    result_history.append((result, image))
+
+# Hiển thị lịch sử kết quả
+def show_result_history():
+    for result, image in result_history:
+        # Hiển thị kết quả và ảnh trong giao diện người dùng
+        # (Bạn cần thêm mã để hiển thị ảnh và kết quả tương ứng)
+
+
