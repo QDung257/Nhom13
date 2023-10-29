@@ -87,7 +87,7 @@ class FaceUnlockApp(QMainWindow):
                     for face_encoding in face_encodings:
                         matches = face_recognition.compare_faces([user_face_encoding], face_encoding)
                         if True in matches:
-                            self.recognized_person = "User: John Doe"  # Replace with the actual person's info
+                            self.recognized_person = "User: QD"  # Replace with the actual person's info
                             self.message_label.setText("Mở khóa thành công!")
                             break
 
